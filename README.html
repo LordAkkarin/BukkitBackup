@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="UTF-8" />
+
+		<!-- Document Metadata -->
+		<title>${project.name} ${project.version}</title>
+		<meta name="robots" content="noindex,follow" />
+
+		<!-- Stylesheets -->
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,800,400italic" />
+		<link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css" />
+
+		<style type="text/css">
+			#headerContainer {
+				text-align:			center;
+			}
+
+			h2 {
+				margin-top:			0;
+			}
+		</style>
+	</head>
+	<body>
+		<section id="wrapper">
+			<header id="headerContainer">
+				<h1>${project.name} ${project.version}</h1>
+			</header>
+
+			<section id="mainContainer" class="container">
+				<article id="gettingStarted" class="well">
+					<p>Thanks for choosing the Evil-Co Backup Plugin! When installing the plugin everything is already set-up for you unless you need to set up an external storage.</p>
+					<p>To install this plugin you will need to extract the distribution archive into your plugin folder (including it's dependencies inside the Backup folder; you may omit the readme and license files if you wish). Please do not modify the directory structure. The plugin expects all dependencies to be inside the <code>Backup/lib</code> directory.</p>
+				</article>
+
+				<article id="advancedConfiguration" class="well">
+					<h2>Advanced Configuration</h2>
+					<p>Apart from the default configuration (backup to local filesystem) you are able to store your backups on <a href="http://aws.amazon.com/glacier/">Amazon Glacier</a> (a low-cost solution for long-term data storage). To do so you will need to change a few properties in the <code>configuration.xml</code>:</p>
+					<pre>
+...
+&lt;StorageMethod&gt;AMAZON_GLACIER&lt;/StorageMethod&gt;
+&lt;AmazonAccessKeyID&gt;YourAccessKey&lt;/AmazonAccessKeyID&gt;
+&lt;AmazonAccessSecretKey&gt;YourSecretKey&lt;/AmazonAccessSecretKey&gt;
+&lt;AmazonEndpoint&gt;us-east-1&lt;/AmazonEndpoint&gt;
+&lt;AmazonBucket&gt;YourVault&lt;/AmazonBucket&gt;
+...</pre>
+					<ul>
+						<li><strong>StorageMethod</strong> Can be <code>NONE</code> or <code>AMAZON_GLACIER</code> depending on your remote storage.</li>
+						<li><strong>AmazonAccessKey</strong> Your Amazon Access Key (see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html">AWS Documentation</a>; only needed if using Glacier storage.</li>
+						<li><strong>AmazonAccessSecretKey</strong> Your Amazon Access Key (see above).</li>
+						<li><strong>AmazonEndpoint</strong> Your endpoint (e.g. us-west-1, us-west-2, us-east-1, etc). A full list of all endpoints is available <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#glacier_region">here</a>.</li>
+						<li><strong>AmazonBucket</strong> Your bucket/vault name.</li>
+					</ul>
+				</article>
+
+				<article id="errors" class="well">
+					<h2>Common Errors</h2>
+
+					<ul class="list-group">
+						<li class="list-group-item">
+							<h4 class="list-group-item-heading">Could not backup file worldedit.log.lck</h4>
+							<p class="list-group-item-text">This error might occur if the plugin is used together with WorldEdit on Windows systems due to the file lock system of Windows. This error is not important and will not cause any trouble.</p>
+						</li>
+					</ul>
+				</article>
+
+				<article id="contribution" class="well">
+					<h2>Contribution</h2>
+
+					<p>Did you know that Glacier Backup is open source? That means that you can read the code and learn from it, as well as modify it and submit back changes to help the community! </p>
+
+					<ul>
+						<li><a href="https://github.com/LordAkkarin/BukkitBackup">View the source code</a></li>
+					</ul>
+				</article>
+			</section>
+		</section>
+	</body>
+</html>

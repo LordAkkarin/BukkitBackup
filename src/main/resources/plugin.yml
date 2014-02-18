@@ -1,0 +1,4 @@
+name: Backup
+description: Automatically backs up the whole server into secure storage.
+main: com.evilco.bukkit.backup.BackupPlugin
+version: "${project.version}"
